@@ -179,7 +179,7 @@ class LogFile(object):
             xmldoc = b4parser(chat_text,'xml')
             for chat in xmldoc.find_all('chat'):
                 for tag in chat.children:
-                    if hasattr(tag,'name'):
+                    if hasattr(tag,'name') and hasattr(tag,'get'):
                         ts = tag.get('time') or '(unknown time)'
                         sender = tag.get('sender')
                         alias = tag.get('alias')
